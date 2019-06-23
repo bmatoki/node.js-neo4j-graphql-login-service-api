@@ -154,9 +154,3 @@ Uninstall steps:
 
 * Boaz Matoki
 
-
-## License
-
--
-## Acknowledgments
--
