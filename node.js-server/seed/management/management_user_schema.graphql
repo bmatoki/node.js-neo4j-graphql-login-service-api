@@ -1,0 +1,12 @@
+type ManagementUser {
+  id: ID
+  created_date: String!
+  username: String!
+  password: String!
+  full_name: String!
+  role: String!
+  title: String!
+  locked: Boolean!
+  suspended_time: String
+  fail_attempt_count: Int
+}

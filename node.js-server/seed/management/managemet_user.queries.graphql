@@ -1,0 +1,9 @@
+  type Query {
+  #ManagementUser users queries
+  getAllmanagement: [ManagementUser] @hasRole(role: ["user","superuser","view"])
+  getManagmentUser(username: String!): [ManagementUser] 
+  getAllmanagementBy(id: ID,created_date: String,username: String, fail_attempt_count: Int,full_name: String,password: String,role: String,title: String,locked: Boolean,suspended_time: String): [ManagementUser] @hasRole(role: ["user","superuser","view"]) 
+  getAllManagementAttempts(id: ID,username: String, fail_attempt_count: Int,role: String,locked: Boolean,suspended_time: String): [ManagementUser] 
+  UpdateAndLockManagement(id: ID!,locked: Boolean!): [ManagementUser] 
+  searchManagementCredentials(username:String!,password:String!): [ManagementUser]
+}

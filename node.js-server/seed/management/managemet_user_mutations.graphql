@@ -1,0 +1,8 @@
+type Mutation {
+  #ManagementUser users mutation
+  CreateManagementUser(id: ID,created_date: String!,username: String!,password: String!,role: String!,title: String!,full_name: String!,locked: Boolean!,suspended_time: String, fail_attempt_count: Int): ManagementUser @hasRole(role: ["user","superuser"])
+  UpdateManagementUser(id: ID!,created_date: String,username: String,password: String,role: String,title: String,full_name: String,locked: Boolean, fail_attempt_count: Int,suspended_time: String): ManagementUser @hasRole(role: ["user","superuser"])
+  UpdateIncreaseManagementUser(id: ID!,locked: Boolean, fail_attempt_count: Int,suspended_time: String): ManagementUser
+  UpdateAndLockManagement(id: ID!,locked: Boolean!): ManagementUser
+  DeleteManagementUser(id: ID!): ManagementUser @hasRole(role: ["superuser"])
+}
