@@ -31,7 +31,8 @@ async function doLogin(req, res) {
 async function getUserDetailsFromToken(req, res) {
   logger.info('/api/users/decoded/: POST getUserDetailsFromToken() - Started.');
   try {
-    const decoded = await jwt.verify(req.body.token, env);
+    const authToken = req.headers.authorization;
+    const decoded = await jwt.verify(authToken, env);
     return res.status(200).json({
       success: true,
       msg: decoded,
@@ -112,9 +113,9 @@ async function updateUser(req, res) {
 }
 
 router.post('/login', doLogin);
-router.post('/decoded', getUserDetailsFromToken);
+router.get('/decoded', getUserDetailsFromToken);
 router.post('/register', doRegister);
-router.post('/update', updateUser);
-router.post('/all', getAllUsersFromDB);
+router.put('/update', updateUser);
+router.get('/all', getAllUsersFromDB);
 
 module.exports = router;
