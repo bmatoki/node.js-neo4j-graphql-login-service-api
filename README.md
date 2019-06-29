@@ -31,6 +31,28 @@ After 10 failures the user can’t login for 1 hour
 After 12 failures the user is locked
 ```
 
+
+in case you need to add a realtion inside your seed\schema here is an example:
+```
+  students: [Students] @relation(name:HAS_STUDENT, direction: "OUT")
+
+```
+in case you want to run a custom cypher query inside your query/mutations :
+```
+searchStudentByName(name:String!): [Students]  @cypher(statement:"MATCH (s:Students) WHERE LOWER(s.name) CONTAINS LOWER($name) or LOWER(s.display_name) CONTAINS LOWER($name)  RETURN s;") @hasRole(role:["superuser"]) 
+
+```
+example for first,after,offset - great for pagination :
+
+```
+  getAllStudents(first: Int,after: String,offset: Int): [Students] @hasRole(role:["superuser"]) 
+```
+
+in case you need to add count inside your schema :
+
+```
+  count_total: Int @cypher(statement: "MATCH (s:Students) RETURN count(s) limit 1")
+```
 ## Getting Started
 
 In order to install the application clone the repo.
