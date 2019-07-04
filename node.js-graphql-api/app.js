@@ -30,7 +30,7 @@ const driver = v1.driver(
 // inject the request object into the context to support middleware
 // inject the Neo4j driver instance to handle database call
 
-// for disable playground get.
+// for disable playground and introspection api schema in production.
 const isDev = process.env.NODE_ENV !== 'production';
 
 const server = new ApolloServer({
@@ -40,7 +40,7 @@ const server = new ApolloServer({
     res,
     driver,
   }),
-  introspection: true,
+  introspection: isDev,
   playground: isDev,
 });
 
