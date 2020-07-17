@@ -20,7 +20,7 @@
     "graphql-request": "^1.8.2",
     "graphql-tools": "^4.0.4",
     "jsonwebtoken": "^8.5.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "merge-graphql-schemas": "^1.5.8",
     "moment": "^2.22.2",
     "morgan": "^1.9.1",
