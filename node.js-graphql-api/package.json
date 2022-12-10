@@ -16,7 +16,7 @@
     "cors": "^2.8.5",
     "cron": "^1.5.1",
     "crypto": "^1.0.1",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "graphql-request": "^1.8.2",
     "graphql-tools": "^4.0.4",
     "jsonwebtoken": "^8.5.0",
